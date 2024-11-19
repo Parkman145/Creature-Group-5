@@ -35,17 +35,18 @@ void Game::play_game()
             }
         }
     }
-        bool Game::is_eliminated() const
-        {
-            return _is_eliminated;
-        }
+        
+    bool Game::is_eliminated() const
+    {
+        return _is_eliminated;
+    }
 
-        int Game::get_game_number() const
-        {
-            return _game_number;
-        }
+    int Game::get_game_number() const
+    {
+        return _game_number;
+    }
 
-        int Game::get_round_winner(const Creature &creature1, const Creature &creature2) const
-        {
-            // TODO
-        }
+    int Game::get_round_winner(const Creature &creature1, const Creature &creature2) const
+    {
+        // TODO
+    }
