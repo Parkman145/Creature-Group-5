@@ -1,4 +1,4 @@
-#include "Game.h”
+#include "Game.h"
 #include <iostream>
 
 using namespace std;
@@ -18,7 +18,7 @@ void Game::play_game()
     vector<Creature> team1_players = _team1.get_players();
     vector<Creature> team2_players = _team2.get_players();
 
-    for (size_t i = 0; i < team1..size(); i++)
+    for (size_t i = 0; i < team1.size(); i++)
     {
         const Creature &creature1 = team1_players.size[i];
         for (size_t j = 0; j < team2_players.size(); j++)
