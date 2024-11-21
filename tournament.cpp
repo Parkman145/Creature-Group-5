@@ -1,4 +1,5 @@
 #include "Tournament.h"
+#include "Team.h"
 
 
 Tournament::Tournament(vector<Team> teams) : _teams{teams}, _games{}{
@@ -25,4 +26,18 @@ string Tournament::format_scores(){
 
     return str;
 
+}
+
+vector<Team> Tournament::get_teams(){
+    return _teams;
+}
+
+string Tournament::format_teams(){
+
+    string str;
+
+    for (Team team : _teams){
+        str += team.to_string();
+        str += "\n";
+    }
 }
