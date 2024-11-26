@@ -11,8 +11,8 @@ class Game
 private:
     int _game_number;
     bool _is_eliminated;
-    Team &_team1,
-    Team &_team2;
+    Team &team1;
+    Team &team2;
 
 public:
     Game(int game_number, Team &team1, Team &team2);
@@ -21,7 +21,8 @@ public:
     void play_game();
     bool is_eliminated() const;
     int get_game_number() const;
-    int determine_round_winner(Team &team1, Team &team2) const { };
+    int get_round_winner(const Creature &creature1, const Creature &creature2) const;
+    int determine_round_winner(Team &team1, Team &team2) const;
 
 };
 

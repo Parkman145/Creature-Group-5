@@ -40,4 +40,5 @@ string Tournament::format_teams(){
         str += team.to_string();
         str += "\n";
     }
+    return str;
 }
