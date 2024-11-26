@@ -29,10 +29,15 @@ void Game::play_game()
             int round_winner = determine_round_winner(creature1, creature2) 
             if (round_winner == 1)
             {
-                ++team1_score;
+                ++team1_score; // Team 1 wins and gets +1 point
             }
             else if (round_winner == 2)
             {
+                ++team2_score; // Team 2 wins and gets +1 point
+            }
+            else
+            {   
+                ++team1_score;  // Tie, both teams get +1 point
                 ++team2_score;
             }
         }
@@ -54,7 +59,24 @@ void Game::play_game()
         return _game_number;
     }
 
-    int Game::get_round_winner(const Creature &creature1, const Creature &creature2) const
+    int Game::determine_round_winner(const Creature &creature1, const Creature &creature2) const
     {
-        // TODO
+        Creature::MOVE move1 = creature1.get_move();
+        Creature::MOVE move2 = creature2.get_move();
+
+        if (move1 == move2)
+        {
+            return 0; // Tie
+        }
+        else if ((move1 == Creature::ROCK && move2 == Creature::SCISSORS) ||
+                (move1 == Creature::PAPER && move2 == Creature::ROCK) ||
+                (move1 == Creature::SCISSORS && move2 == Creature::PAPER))
+        {
+            return 1; // Creature 1 is the winner
+        }
+        else
+        {
+            return 2; // Creature 2 is the winner
+        }
+        
     }
