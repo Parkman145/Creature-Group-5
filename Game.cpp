@@ -5,12 +5,13 @@ using namespace std;
 
 Game::Game(int game_number, Team &team1, Team &team2) : _game_number(gameNumber), _team1(team1), _team2(team2), _is_eliminated(false)
 {
+
 }
 
 void Game::play_game()
 {
     cout << “Game #” << _game_number << “ starting…” << endl;
-    cout << _team1.get_name() << “ vs “ << _team2.get_name << endl;
+    cout << _team1.get_name() << “ vs “ << _team2.get_name() << endl;
 
     int team1_score = 0;
     int team2_score = 0;
@@ -18,9 +19,10 @@ void Game::play_game()
     vector<Creature> team1_players = _team1.get_players();
     vector<Creature> team2_players = _team2.get_players();
 
-    for (size_t i = 0; i < team1.size(); i++)
+    // Simulates a game of round-robin matchmaking
+    for (size_t i = 0; i < team1_players.size(); i++)
     {
-        const Creature &creature1 = team1_players.size[i];
+        const Creature &creature1 = team1_players[i];
         for (size_t j = 0; j < team2_players.size(); j++)
         {
             const Creature &creature2 = team2_players[j];
@@ -35,6 +37,12 @@ void Game::play_game()
             }
         }
     }
+
+    // Displays result of the game
+    cout << "Game #" << _game_number << "results: " << endl;
+    cout << _team1.get_name() << "'s score: " << team1_score << endl;
+    cout << _team2.get_name() << "'s score: " << team2_score << endl;
+
         
     bool Game::is_eliminated() const
     {
