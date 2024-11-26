@@ -1,0 +1,43 @@
+#include "Tournament.h"
+#include "Team.h"
+
+
+Tournament::Tournament(vector<Team> teams) : _teams{teams}, _games{}{
+    vector<Game> _games;
+}
+
+vector<int> Tournament::get_scores(){
+    vector<int> scores;
+    scores.reserve(_teams.size());
+    for (Team team_iter : _teams){
+        scores.push_back(team_iter.get_score());
+    }
+
+    return scores;
+}
+
+string Tournament::format_scores(){
+    vector<int> scores = get_scores();
+    string str = "";
+
+    for (int i = 0; i < _teams.size(); i++){
+        str = str + "Score of " + _teams[i].get_name() + ": " + to_string(_teams[i].get_score()) + "\n";
+    }
+
+    return str;
+
+}
+
+vector<Team> Tournament::get_teams(){
+    return _teams;
+}
+
+string Tournament::format_teams(){
+
+    string str;
+
+    for (Team team : _teams){
+        str += team.to_string();
+        str += "\n";
+    }
+}
